@@ -67,15 +67,6 @@ test_db_storage.py'])
             self.assertTrue(len(func[1].__doc__) >= 1,
                             "{:s} method needs a docstring".format(func[0]))
             
-    def test_count_specific_class(self):
-        # Test counting objects of a specific class
-        countStorage = self.storage.count(count)
-        self.assertEqual(countStorage, 1)
-
-    def test_count_all_objects(self):
-        # Test counting all objects
-        countStorage = self.storage.count()
-        self.assertEqual(countStorage, 1)
 
 
 class TestFileStorage(unittest.TestCase):
@@ -96,3 +87,13 @@ class TestFileStorage(unittest.TestCase):
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_save(self):
         """Test that save properly saves objects to file.json"""
+
+    def test_count_specific_class(self):
+        # Test counting objects of a specific class
+        countStorage = self.storage.count(countStorage)
+        self.assertEqual(countStorage, 1)
+
+    def test_count_all_objects(self):
+        # Test counting all objects
+        countStorage = self.storage.count()
+        self.assertEqual(countStorage, 1)
