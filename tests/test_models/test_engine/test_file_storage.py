@@ -115,12 +115,12 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(json.loads(string), json.loads(js))
 
     def test_count_objects_by_class(self):
-        # Test if count method returns the correct count of objects for a specific class
+        """Test if count method returns the correct count of objects for a specific class"""
         result = self.storage.count(BaseModel)
         self.assertEqual(result, 2)
 
     def test_count_zero_objects(self):
-        # Test if count method returns 0 when no objects are present
+        """Test if count method returns 0 when no objects are present"""
         self.storage.delete(self.obj1)
         self.storage.delete(self.obj2)
         result = self.storage.count()

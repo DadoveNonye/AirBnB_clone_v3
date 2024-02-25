@@ -89,11 +89,11 @@ class TestFileStorage(unittest.TestCase):
         """Test that save properly saves objects to file.json"""
 
     def test_count_specific_class(self):
-        # Test counting objects of a specific class
+        """Test counting objects of a specific class"""
         countStorage = self.storage.count(countStorage)
         self.assertEqual(countStorage, 1)
 
     def test_count_all_objects(self):
-        # Test counting all objects
+        """Test counting all objects"""
         countStorage = self.storage.count()
         self.assertEqual(countStorage, 1)
