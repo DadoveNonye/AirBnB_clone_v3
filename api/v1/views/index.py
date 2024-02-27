@@ -2,12 +2,10 @@
 """ flask app"""
 
 from api.v1.views import app_views
-from flask import Flask, jsonify
+from flask import Blueprint, jsonify
 from models import storage
 
-app = Flask(__name__)
-
-app.register_blueprint(app_views)
+app_views = Blueprint('app_views', __name__)
 
 
 @app_views.route("/status", methods=['GET'])
@@ -29,5 +27,3 @@ def object_stats():
             }
     return jsonify(objects)
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
