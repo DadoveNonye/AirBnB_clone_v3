@@ -9,7 +9,7 @@ from flask import Flask, jsonify
 from models import storage
 from api.v1.views import app_views
 import os
-#from flask_cors import CORS
+from flask_cors import CORS
 
 
 # creating flask instance
@@ -21,7 +21,7 @@ app.register_blueprint(app_views)
 
 
 # Initialize CORS
-#CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
+CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 
 # method to handle teardown. 
