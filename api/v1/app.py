@@ -18,7 +18,7 @@ def teardown(error):
     """Closing the sql session"""
     storage.close()
 
-app.errorhandler(404)
+@app.errorhandler(404)
 def error_not_found(error):
     """handles 404 error"""
     return jsonify({"error": "Not found"}), 404
