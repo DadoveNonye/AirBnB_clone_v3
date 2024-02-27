@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Flask application creation"""
+""" 
+    Flask application creation from blueprint
+"""
 
 from flask import Flask, jsonify
 from models import storage
