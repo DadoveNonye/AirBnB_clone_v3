@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """creates the app.py"""
-from flask import Flask
+from flask import Flask, jsonify
 from models import storage
 from api.v1.views import app_views
 import os
@@ -14,6 +14,11 @@ app.register_blueprint(app_views)
 def teardown(error):
     """Closes the SQL session when the application context is destroyed."""
     storage.close()
+
+# Define a handler for 404 errors
+@app.errorhandler(404)
+def not_found_error(error):
+    return jsonify({"error": "Not found"}), 404
 
 if __name__ == "__main__":
      # Get host and port from environment variables or use defaults
