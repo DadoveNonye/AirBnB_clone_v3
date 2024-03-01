@@ -1,11 +1,19 @@
 #!/usr/bin/python3
 """creates the app.py"""
 from flask import Flask, jsonify
+from flask_cors import CORS
 from models import storage
 from api.v1.views import app_views
 import os
 
 app = Flask(__name__)
+
+# enable CORS and allow for origins:
+CORS(app, resources={r'/api/v1/*': {'origins': '0.0.0.0'}})
+
+app.register_blueprint(app_views)
+app.url_map.strict_slashes = False
+
 
 # Register blueprint for API routes
 app.register_blueprint(app_views)
